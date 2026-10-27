@@ -28,7 +28,7 @@ jobs:
       - name: Установка зависимостей
         run: pip install -r requirements.txt
 
-      - name: Сборка (strict: битые ссылки валят пайплайн)
+      - name: "Сборка (strict: битые ссылки валят пайплайн)"
         run: mkdocs build --strict
 
       - uses: actions/upload-pages-artifact@v3
