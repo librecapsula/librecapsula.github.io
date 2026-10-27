@@ -1,0 +1,117 @@
+site_name: LibreCapsula Wiki
+site_url: https://librecapsula.github.io/
+site_description: >-
+  Открытая документация по колонкам VK Capsula: железо, прошивки,
+  джейлбрейк и инструменты сообщества LibreCapsula.
+
+repo_url: https://github.com/librecapsula/librecapsula.github.io
+repo_name: librecapsula/librecapsula.github.io
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: ru
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Переключить на тёмную тему
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Переключить на светлую тему
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.path
+    - toc.follow
+    - search.suggest
+    - search.share
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search:
+      lang: ru
+      separator: '[\s\-\.]+'
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      toc_depth: 3
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
+  links:
+    not_found: warn
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+
+nav:
+  - Главная: index.md
+  - Устройства:
+      - devices/index.md
+      - Капсула: devices/capsula.md
+      - Капсула Мини: devices/capsula-mini.md
+      - Капсула Нео: devices/capsula-neo.md
+      - Mi Smart Speaker: devices/mi-smart-speaker.md
+      - Prestigio SmartVoice: devices/prestigio-smartvoice.md
+  - Железо:
+      - hardware/index.md
+      - SoC RK3308: hardware/rk3308.md
+      - Отладочный UART: hardware/uart.md
+      - Разделы флеша: hardware/partitions.md
+  - Прошивки:
+      - firmware/index.md
+      - OTA-пакеты: firmware/ota.md
+      - Джейлбрейк: firmware/jailbreak.md
+  - Инструменты:
+      - tools/index.md
+      - capsula-userspace-jailbreak: tools/capsula-userspace-jailbreak.md
+      - librerd: tools/librerd.md
+  - Как править вики: contributing.md
